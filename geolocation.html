@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h1>
+    Geolocation
+</h1>
+
+<output id = "coordinates">
+
+
+</output>
+
+<script type="text/javascript">
+
+
+//    var coords = document.getElementsById("Coordinates")
+    navigator.geolocation.getCurrentPosition(showPosition, errorHandler, {
+        enableHighAccuracy: true,
+        maximumAge : 1000,
+        timeout : 10000
+    });
+    function showPosition(position) {
+        alert(position.coords.latitude + " " + position.coords.longitude);
+    }
+    function errorHandler(error){
+        alert("error");
+    }
+
+</script>
+
+</body>
+</html>
