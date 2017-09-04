@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>star</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="300">
+
+</canvas>
+
+<script type="text/javascript">
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    if(context == null) {
+        alert("Canvas is not supported!");
+    }
+    context.fillStyle = "white";
+
+    context.strokeStyle = "#4eaf48";
+    context.fillStyle = "#4eaf48";
+    context.font = "30pt sans-serif";
+    context.lineWidth = 2;
+    context.strokeText("Canvas is a RockStar", 20,100);
+
+    context.beginPath();
+
+    context.moveTo(230,110);
+    context.lineTo(210,160);
+    context.lineTo(150,150);
+    context.lineTo(200,190);
+    context.lineTo(180,240);
+    context.lineTo(230,200);
+    context.lineTo(280,240);
+    context.lineTo(260,190);
+    context.lineTo(310,150);
+    context.lineTo(250,160);
+    context.lineTo(230,110);
+    context.closePath();
+    context.fill();
+    context.stroke();
+/*
+
+    var ctx = context;
+    ctx.beginPath();
+    ctx.moveTo(150, 20);
+    ctx.arcTo(150, 100, 50, 20, 5);
+    ctx.stroke();
+
+    ctx.fillStyle = 'blue';
+    // base point
+    ctx.fillRect(150, 20, 10, 10);
+
+    ctx.fillStyle = 'red';
+    // control point one
+    ctx.fillRect(150, 100, 10, 10);
+    // control point two
+    ctx.fillRect(50, 20, 10, 10);
+*/
+
+    context.strokeStyle = "blue";
+    context.beginPath();
+    context.arc(80, 180, 40, 0, 2 * Math.PI, true);
+    context.closePath();
+    context.stroke();
+
+    context.beginPath();
+    context.arc(90, 165, 4, 0, 2 * Math.PI, true);
+    context.closePath();
+    context.stroke();
+    context.beginPath();
+    context.arc(60, 165, 4, 0, 2 * Math.PI, true);
+    context.closePath();
+    //context.closePath();
+    //context.fill();
+    context.stroke();
+
+
+
+</script>
+
+
+</body>
+</html>

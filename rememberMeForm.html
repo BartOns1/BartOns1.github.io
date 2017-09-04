@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <style>
+        #hello {border: dotted;
+            font-size: 2em;}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div id = "message" class="alert alert-success">
+
+
+
+
+    </div>
+
+    <form id="myForm" method="post">
+        <div class="form-group">
+               <input class="form-control" id="firstName" name="FN" placeholder ="Enter first name here">
+               <input class="form-control" id="lastName" name="LN" placeholder ="Enter last name here">
+        </div>
+        <input type="submit" value="Who are you" class="btn btn-primary">
+    </form>
+
+
+</div>
+
+<script>
+//localStorage.clear()
+if(!window.localStorage){
+    var c= document.getElementsByClassName("container");
+    c.innerHTML = "Your browser does not support localStorage"
+} else {
+
+    if (localStorage.getItem("fName") === null) {
+
+        var mes = document.getElementById("message");
+        mes.innerHTML += "<p>" + "Hey Stranger, Haven't seen you before..." + "</p>";
+
+        var f = document.getElementById("myForm");
+        f.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var fName = f.FN.value;
+            var lName = f.LN.value;
+            localStorage.setItem("fName", fName);
+            localStorage.setItem("lName", lName);
+
+            mes.innerHTML = "<p>" + "Thanks, for letting us know you are " + localStorage.getItem("fName") + " " + localStorage.getItem("lName") + "</p>";
+        });
+    } else {
+        var mes = document.getElementById("message");
+        mes.innerHTML += "<p>" + "Welkom back, " + localStorage.getItem("fName") + " " + localStorage.getItem("lName") + "</p>";
+    };
+
+}
+
+
+    //var name = localStorage.getItem("name"); localStorage.removeIt
+
+
+</script>
+
+</body>
+</html>
