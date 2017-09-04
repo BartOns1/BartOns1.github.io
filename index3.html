@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8"/>
+
+    <title>Mijn Animatie Effect</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url(https://img0.etsystatic.com/000/0/5434618/il_fullxfull.177222492.jpg);
+            background-size: 2rem;
+        }
+
+
+
+       html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        main {
+            display: flex;
+           align-items: center;
+            border: 0.25rem solid black;
+            width: 15rem;
+            height: 15rem;
+            justify-content: center;
+            margin: auto;
+            font-family: "Indie Flower";
+            font-size: 0.5rem;
+            border-radius: 100%;
+            background: radial-gradient(circle, red, green, blue);
+            color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+<main id="subject">
+    <div> HYPNOSIS POKEMON</div>
+
+</main>
+<script>
+    var s = document.getElementById("subject");
+    var j =1048577;
+    console.log(s.toString());
+    var k =16777215;
+    var rot = 0;
+    var dummy=0;
+    console.log(k.toString(16) + " ");
+    console.log(j.toString(16) + " ");
+        // s.style.borderColor = "red";
+    s.style.background="linear-gradient(" + rot +"deg, #" + j + ", #" + k + ")";
+
+
+    function timer(){
+        j+=1;
+        k-=1;
+
+        rot=(rot+0.5)%101;
+        dummy=rot;
+        if (rot>50){
+            dummy=100-rot;
+        }
+
+        console.log(dummy);
+        s.style.background="radial-gradient(circle, #" + j.toString(16) + ", #" + k.toString(16) + ")";
+        s.style.borderRadius=Math.floor(dummy) + "%";
+        s.style.width=(15+dummy) + "rem";
+        s.style.height=(15+dummy) + "rem";
+        s.style.fontSize=(0.5+dummy/10) + "rem";
+        if(j<1048999){
+            setTimeout(timer,300);
+        }
+    }
+    timer();
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <form id="myForm" method="post">
+        <div class="form-group">
+            <label class="control-label" for="birthday">Geef uw geboortedatum:</label>
+            <input class="form-control" type="date" id="birthday" name="geboortedatum" placeholder ="yyyy-mm-dd">
+        </div>
+        <input type="submit" value="BEREKEN" class="btn btn-primary">
+    </form>
+</div>
+
+<script>
+    console.log("log works");
+    var f = document.getElementById("myForm");
+    f.addEventListener("submit", function(e){
+        e.preventDefault();
+        var d = document.getElementById("birthday");
+        console.log(d);
+        var nu = new Date();
+        console.log(nu);
+        var verjaardag = new date(d.value)
+
+                console.log(verjaardag);
+
+        verjaardag.setFullYear(nu.getFullYear());
+        if (verjaardag>nu){
+            verjaardag.setFullYear(nu.getFullYear()+1);
+        }
+
+        var verschil=math.floor((verjaardag-nu)/3600/24);
+
+        document.write("Uw verjaardag is binnen " + verschil + " dagen.")
+
+    });
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

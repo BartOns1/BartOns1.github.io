@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td, th {
+            border: 1px solid black;
+            padding: 0.5rem;
+            font-family: sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+<body>
+
+<script>
+
+
+    function Person(firstName, lastName){
+        this.firstName=firstName;
+        this.lastName=lastName;
+    }
+
+    Person.prototype.tostring = function() {
+        return this.firstName + " " + this.lastName;
+    };
+
+    function User(alias, firstName, lastName){
+        Person.call(this, firstName, lastName);
+        this.alias = alias;
+    };
+
+    User.prototype = Object.create(Person.prototype);
+    User.prototype.getMoreComment = function(){
+        return "toDo Later";
+    }
+
+    function Actor(firstName, lastName){
+        Person.call(this, firstName, lastName);
+    };
+
+    function Film(title, rating, runlength) {
+        if(title === undefined) {
+            throw new Error("Fout");
+        }
+        this.title = title;
+        this.rating = rating;
+        this.comments=[];
+        this.characters=[];
+    }
+
+    Film.prototype.setDescription = function(filmDescription) {
+        this.description=filmDescription;
+        };
+
+    Film.prototype.addComment = function(user, anotherComment) {
+        this.comments.push({
+            text: anotherComment,
+            user: user
+        });
+    };
+    console.log("werkt nog");
+    Film.prototype.addCharacter = function(actor, name) {
+        this.characters.push({
+            actor: actor,
+            name: name
+        });
+    };
+    var user=new User("gulm", "Jim", "Friedel");
+    var f = new Film("Pulp Fiction", 5, 158);
+    f.setDescription("lots of stuff happening");
+    f.addCharacter(new Actor("John", "Travolta"),"Vincent Vega");
+    f.addComment(user,"graauw");
+
+
+    console.log(f);
+
+    document.write(f);
+    document.write("<h1>"+ f.title +"</h1>");
+    document.write("<p>" + f.description + "</p>");
+
+    document.writeln("<table>");
+    document.writeln("<thead><tr><th>Characters</th><th>Actor</th></tr></thead>");
+    document.write("<tbody>");
+    for(var c in f.characters) {
+        document.write("<tr>");
+        document.write("<td>" + f.characters[c].name + "</td>");
+        document.write("<td>" + f.characters[c].actor.firstName + " " + f.characters[c].actor.lastName + "</td>");
+        document.write("</tr>");
+    }
+    document.write("</tbody>");
+    document.writeln("</table>");
+    document.write(user.getMoreComment());
+
+
+
+</script>
+
+</body>
+</html>

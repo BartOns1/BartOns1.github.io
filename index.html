@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>maaltafels</title>
+        <style>
+            table{
+                background: linear-gradient(45deg, darkgoldenrod, darkgreen);
+                color: white;
+                text-align: center;
+
+                }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Welkom</h1>
+        <script>
+            document.writeln("<table><br/>");
+            for(var i=1;  i<11 ;i++){
+                document.writeln("<tr>");
+                for(var j=1; j<11; j++){
+                    if ((i*j % 3) ===0){
+                        document.write("<td><font color = 'red'> ");
+                        document.write(i*j + "</font></td>")
+                    } else {
+                        document.writeln("<td>" + i*j + "</td>");
+                    }
+                }
+                document.writeln("</tr>");
+            }
+            document.writeln("<table/>");
+        </script>
+
+        <h2>Einde</h2>
+    </body>
+
+</html>

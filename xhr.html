@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1> Mijn Pagina</h1>
+    <p><button id = "myButton" class = "btn btn-primary">Data inladen van server </button>
+    </p>
+</div>
+<div class="container">
+    <p id = "output">
+    </p>
+</div>
+
+    <script>
+        var b = document.getElementById("myButton");
+        b.addEventListener("click", function(e) {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "film.json");
+            xhr.addEventListener("readystatechange", function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        //all gooe
+                        var films = JSON.parse(xhr.responseText);
+                        var output = document.getElementById("output");
+
+                        for (var f of films) {
+                            output.innerHTML += "<h2><code>" + f.title + "</code></h2>";
+                            output.innerHTML += "<p>" + f.description + "</p>";
+                            s = "<table class='table'>";
+                            s += "<thead><tr><th>Characters</th><th>Actor</th></tr></thead>";
+                            s += "<tbody>";
+                            for (var c of f.characters) {
+                                s += "<tr>" + "<td>" + c.name + "</td>" + "<td>" + c.actor.firstname + " " + c.actor.lastname + "</td>" + "</tr>";
+                            }
+                            s += "</tbody>";
+                            s += "</table>";
+                            output.innerHTML += s;
+
+                            //innerhtml werkt op een volledige geldige html block, anders met string werken zoals hier om de block in zijn geheel door te geven aan innerhtml
+                        }
+
+                    }
+                }
+
+            });
+
+            xhr.send();
+        });
+
+    </script>
+
+</body>
+</html>

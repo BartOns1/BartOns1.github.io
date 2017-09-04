@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script>
+
+    function Animal(name, age) {
+        if(name === undefined) {
+            throw new Error("Fout");
+        }
+        this.name = name;
+        this.age = age;
+    }
+
+    Animal.prototype.sound = function() {
+        return "Miep " + this.name;
+    };
+
+    function Cat(name, age, lives, whiskers) {
+        Animal.call(this, name, age); // super(name, age);
+       this.lives = lives;
+        this.whiskers = whiskers;
+    }
+    Cat.prototype = Object.create(Animal.prototype);
+
+    Cat.prototype.scratch = function() {
+        return this.name + " scratches";
+    };
+
+
+    var c = new Cat("Sloeber", 15, 6, 5);
+    document.write(c.whiskers + "<br/>");
+    document.write(c.name + "<br/>");
+    document.write(c.scratch() + "<br/>");
+    document.write(c.sound() + "<br/>");
+
+    var a = new Animal("Missie", 8);
+    var b = new Animal("Balou", 16);
+    b.sound = function() {
+        return "Grawl!!!!";
+    };
+
+    document.write(a.sound() + "<br/>");
+    document.write(b.sound() + "<br/>");
+
+</script>
+</body>
+</html>

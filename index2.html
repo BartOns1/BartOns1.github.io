@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="textballoon.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var grens = 200;
+    var a_grens = Math.floor(grens/10);
+    var b_grens = grens%10 +1;
+
+
+
+    document.writeln("<table>");
+    for(var a=0;  a < a_grens ;a++) {
+        document.writeln("<tr>");
+        for (var j = 1; j < 11; j++) {
+            document.write("<td>");
+
+            if (((a * 10 + j) % 3) % 5 === 0) {
+                document.write("<p class='speech'> FizzBuzz</P>");
+            } else if ((a * 10 + j) % 3 === 0) {
+                document.write("<p class='speech'>Fizz</P>");
+            } else if ((a * 10 + j) % 5 === 0) {
+                document.write("<p class='speech'>Buzz</P>");
+            } else {
+                document.write("<p class='speech'>" + (a*10+j) + "</P>");
+            }
+            document.write("</td>");
+        }
+        document.write("</tr>");
+    }
+    document.writeln("</table>");
+
+
+    var getal = Math.floor((Math.random())*10+1);
+    var juist = false;
+    var aantal = 3;
+    console.log("Het Getal is " + getal.toString());
+    while (juist===false && aantal!==0 ){
+          var rara = prompt("Raad eens welk getal ik heb bedacht!");
+          if (rara==getal){
+              var msg = "juist! juis! juist!";
+              window.alert(msg);
+              juist = true;
+              break;
+          } else {
+              aantal-=1;
+              if (aantal===0){
+                  var msg = "GAME OVER!!!";
+                  window.alert("Het getal was " + getal + "!");
+              } else {
+                  var msg = "FOUT, Je mag nog " + aantal + " keer raden";
+              }
+              window.alert(msg);
+          }
+    }
+
+JAPI
+
+
+</script>
+
+</body>
+</html>
