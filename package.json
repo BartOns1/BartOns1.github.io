@@ -1,0 +1,28 @@
+{
+  "name": "bartons1.github.io",
+  "version": "1.0.0",
+  "description": "Mijn voorbeelden tijdens de lessen",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BartOns1/BartOns1.github.io.git"
+  },
+  "keywords": [
+    "vdab",
+    "javascript",
+    "jquery",
+    "teaching"
+  ],
+  "author": "Bart Ons",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/BartOns1/BartOns1.github.io/issues"
+  },
+  "homepage": "https://github.com/BartOns1/BartOns1.github.io#readme",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
