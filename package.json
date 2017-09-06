@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/BartOns1/BartOns1.github.io#readme",
   "dependencies": {
-    "jquery": "^3.2.1"
+    "d3": "^4.10.2",
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1"
   }
 }
+//packagemanager zoals gradle voor java is dit de package manager voor javascript
